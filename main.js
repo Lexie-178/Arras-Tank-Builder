@@ -478,9 +478,9 @@ function exportTank() { //Uses our varibles and sets "it" to the export code
     var facingType = document.getElementById("facingType").options[document.getElementById("facingType").selectedIndex].value;
     var maxChildren = document.getElementById("maxChildren").value;
     var damageEffects = document.getElementById("damageEffects").checked;
-    var it = "exports." + exportName + " = {\n"
+    var it = "Class." + exportName + " = {\n"
     if (parent !== "") {
-    it += "   PARENT: [exports." + parent + "],\n"
+    it += "   PARENT: [" + parent + "],\n"
     }
     it += "   LABEL: \'" + label + "\',\n"
     if (type != "tank"||parent != "genericTank") {
@@ -641,7 +641,7 @@ function exportTank() { //Uses our varibles and sets "it" to the export code
                     it += "            SHOOT_SETTINGS: combineStats([" + guns[i].PROPERTIES.SHOOT_SETTINGS + "]),\n";
                 }
                 if (guns[i].PROPERTIES.TYPE!=null) {
-                    it += "            TYPE: exports." + guns[i].PROPERTIES.TYPE + ",\n";
+                    it += "            TYPE: " + guns[i].PROPERTIES.TYPE + ",\n";
                 }
                 if (guns[i].PROPERTIES.LABEL!=null) {
                     it += "            LABEL: \'" + guns[i].PROPERTIES.LABEL + "\',\n";
